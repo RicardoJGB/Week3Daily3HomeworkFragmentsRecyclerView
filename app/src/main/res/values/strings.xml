@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Week3Daily3 Homework - Fragments, RecyclerView</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="FirstName">Input First Name here</string>
+    <string name="LastName">Input Last Name here</string>
+    <string name="PhoneNumber">Input Phone Number here</string>
+    <string name="EmailAddress">Input Email Address here</string>
+</resources>
