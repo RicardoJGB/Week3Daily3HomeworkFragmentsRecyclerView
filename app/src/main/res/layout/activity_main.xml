@@ -14,11 +14,15 @@
         android:layout_height="wrap_content"
         android:name="com.mobileapps.week3daily3homework_fragmentsrecyclerview.Fragments.InputFragment"/>
 
-    <Button
-        android:id="@+id/btnSend"
+    <FrameLayout
+        android:id="@+id/sendingFrag"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Send"
-        android:onClick="CLICK"/>
+        android:layout_height="wrap_content"/>
+
+    <FrameLayout
+        android:id="@+id/receivingFrag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 
 </LinearLayout>

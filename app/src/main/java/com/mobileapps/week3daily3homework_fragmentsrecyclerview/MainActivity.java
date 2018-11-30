@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.mobileapps.week3daily3homework_fragmentsrecyclerview.Fragments.DisplayFragment;
 import com.mobileapps.week3daily3homework_fragmentsrecyclerview.Fragments.InputFragment;
 
 public class MainActivity extends AppCompatActivity implements InputFragment.OnFragmentInteractionListener {
@@ -14,20 +15,24 @@ public class MainActivity extends AppCompatActivity implements InputFragment.OnF
     EditText etLastName;
      EditText etPhoneNumber;
      EditText etEmailAddress;
-
+     DisplayFragment displayFragment;
      FragmentManager fm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        etFirstName=findViewById(R.id.etFirstName);
-        etLastName=findViewById(R.id.etLastName);
-        etPhoneNumber=findViewById(R.id.etPhoneNumber);
-        etEmailAddress=findViewById(R.id.etEmailAddress);
+        displayFragment=DisplayFragment.newInstance();
         fm=getSupportFragmentManager();
+        fm.beginTransaction().add(R.id.sendingFrag,InputFragment.newInstance(),InputFragment.SEND_TAG)
+                .addToBackStack(InputFragment.SEND_TAG).commit();
+        fm.beginTransaction().add(R.id.receivingFrag,displayFragment,DisplayFragment.RCV_TAG)
+                .addToBackStack(DisplayFragment.RCV_TAG).commit();
 
+    }
+
+    public void sendMessageToMain (String messageToSend){
+        displayFragment.receiveData(messageToSend);
     }
 
     @Override
@@ -56,6 +61,5 @@ public class MainActivity extends AppCompatActivity implements InputFragment.OnF
     }
 
 
-    public void CLICK(View view) {
-    }
+
 }
